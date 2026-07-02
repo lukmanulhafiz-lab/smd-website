@@ -1,0 +1,43 @@
+/* ============================================================
+   Sehat Masa Depan — Spacing & sizing tokens
+   4px base grid.
+   ============================================================ */
+
+:root {
+  --space-0:  0;
+  --space-1:  2px;
+  --space-2:  4px;
+  --space-3:  8px;
+  --space-4:  12px;
+  --space-5:  16px;
+  --space-6:  20px;
+  --space-7:  24px;
+  --space-8:  32px;
+  --space-9:  40px;
+  --space-10: 48px;
+  --space-11: 56px;
+  --space-12: 64px;
+  --space-14: 80px;
+  --space-16: 96px;
+  --space-20: 128px;
+
+  /* Layout */
+  --container-sm:  640px;
+  --container-md:  860px;
+  --container-lg:  1100px;
+  --container-xl:  1320px;
+  --gutter:        24px;
+
+  /* Control heights */
+  --control-sm: 32px;
+  --control-md: 40px;
+  --control-lg: 48px;
+
+  /* Z-index ladder */
+  --z-base:    1;   /* @kind other */
+  --z-sticky:  100; /* @kind other */
+  --z-dropdown:200; /* @kind other */
+  --z-overlay: 300; /* @kind other */
+  --z-modal:   400; /* @kind other */
+  --z-toast:   500; /* @kind other */
+}

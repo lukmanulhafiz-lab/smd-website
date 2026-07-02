@@ -1,0 +1,152 @@
+/* ============================================================
+   Sehat Masa Depan — Color tokens
+   Palette derived directly from the SMD heart-circuit logo:
+   deep indigo  #22369B  →  Sehat blue  #1C6CAE
+   →  aqua  #2BB6CF  →  mint  #5DE3DC, with a wellness green accent.
+   ============================================================ */
+
+:root {
+  /* ---- Indigo / brand ink (deepest blue in the mark) ---- */
+  --indigo-50:  #EEF0FB;
+  --indigo-100: #D8DCF4;
+  --indigo-200: #B2BAE9;
+  --indigo-300: #8590DA;
+  --indigo-400: #5A66C6;
+  --indigo-500: #3A45AE;
+  --indigo-600: #2C36A0;
+  --indigo-700: #232C8A;
+  --indigo-800: #1B2168;
+  --indigo-900: #141849;
+
+  /* ---- Sehat blue / primary (mid-tone of the mark) ---- */
+  --blue-50:  #ECF6FC;
+  --blue-100: #CFE8F8;
+  --blue-200: #A2D2F0;
+  --blue-300: #6FB7E4;
+  --blue-400: #429AD4;
+  --blue-500: #2480C0;
+  --blue-600: #1C6CAE;
+  --blue-700: #1A5790;
+  --blue-800: #1A466F;
+  --blue-900: #163A5C;
+
+  /* ---- Aqua / teal accent (right side of the mark) ---- */
+  --aqua-50:  #E8FBFB;
+  --aqua-100: #C7F4F5;
+  --aqua-200: #93E8EB;
+  --aqua-300: #5DD8DD;
+  --aqua-400: #34C3CE;
+  --aqua-500: #1FA9B8;
+  --aqua-600: #1A8B9A;
+  --aqua-700: #1A6F7C;
+  --aqua-800: #195863;
+  --aqua-900: #154851;
+
+  /* ---- Mint (lightest tip of the gradient) ---- */
+  --mint-100: #D6F8F1;
+  --mint-200: #A8F0E6;
+  --mint-300: #76E6D9;
+  --mint-400: #5DE3DC;
+
+  /* ---- Wellness green (circuit-node accents / success) ---- */
+  --green-50:  #E9F8F0;
+  --green-100: #C7EDD8;
+  --green-200: #97DDB8;
+  --green-300: #62CC97;
+  --green-400: #36B97A;
+  --green-500: #1F9460;
+  --green-600: #197A50;
+  --green-700: #176241;
+
+  /* ---- Amber / warning ---- */
+  --amber-50:  #FDF6E7;
+  --amber-100: #FAE9BE;
+  --amber-300: #F2CB6E;
+  --amber-400: #ECB23C;
+  --amber-500: #E5A100;
+  --amber-600: #C98700;
+  --amber-700: #9E6A00;
+
+  /* ---- Red / danger ---- */
+  --red-50:  #FCEDEC;
+  --red-100: #F8D5D4;
+  --red-300: #ED9A9A;
+  --red-400: #E5696C;
+  --red-500: #DC4248;
+  --red-600: #C23036;
+  --red-700: #9C262B;
+
+  /* ---- Neutral slate (cool-tinted to match the blues) ---- */
+  --neutral-0:   #FFFFFF;
+  --neutral-50:  #F6F8FB;
+  --neutral-100: #EDF1F6;
+  --neutral-200: #DEE4EC;
+  --neutral-300: #C7D0DC;
+  --neutral-400: #9AA6B6;
+  --neutral-500: #6B7888;
+  --neutral-600: #4E5A69;
+  --neutral-700: #3A4452;
+  --neutral-800: #28303B;
+  --neutral-900: #161C25;
+  --neutral-950: #0E131A;
+
+  /* ============================================================
+     Semantic aliases — reference these in components, not raw scales
+     ============================================================ */
+
+  /* Surfaces */
+  --surface-page:    var(--neutral-50);
+  --surface-card:    var(--neutral-0);
+  --surface-sunken:  var(--neutral-100);
+  --surface-hover:   var(--neutral-100);
+  --surface-brand:   var(--blue-600);
+  --surface-brand-ink: var(--indigo-800);
+  --surface-inverse: var(--neutral-900);
+
+  /* Text */
+  --text-strong:   var(--neutral-900);
+  --text-body:     var(--neutral-700);
+  --text-muted:    var(--neutral-500);
+  --text-subtle:   var(--neutral-400);
+  --text-on-brand: var(--neutral-0);
+  --text-link:     var(--blue-600);
+
+  /* Borders & dividers */
+  --border-subtle: #E6EBF2;
+  --border-default: var(--neutral-200);
+  --border-strong: var(--neutral-300);
+  --border-brand:  var(--blue-300);
+
+  /* Interactive / primary */
+  --primary:        var(--blue-600);
+  --primary-hover:  var(--blue-700);
+  --primary-active: var(--blue-800);
+  --primary-soft:   var(--blue-50);
+  --on-primary:     var(--neutral-0);
+
+  /* Accent (aqua) */
+  --accent:        var(--aqua-500);
+  --accent-hover:  var(--aqua-600);
+  --accent-soft:   var(--aqua-50);
+
+  /* Focus ring */
+  --ring: 0 0 0 4px rgba(28, 108, 174, 0.20);
+  --ring-accent: 0 0 0 4px rgba(31, 169, 184, 0.20);
+
+  /* Status */
+  --success:      var(--green-500);
+  --success-soft: var(--green-50);
+  --warning:      var(--amber-500);
+  --warning-soft: var(--amber-50);
+  --danger:       var(--red-500);
+  --danger-soft:  var(--red-50);
+  --info:         var(--blue-500);
+  --info-soft:    var(--blue-50);
+
+  /* ---- Signature gradients (the logo's heart-to-circuit sweep) ---- */
+  --gradient-brand: linear-gradient(118deg, #22369B 0%, #1C6CAE 42%, #2BB6CF 78%, #5DE3DC 100%); /* @kind color */
+  --gradient-brand-soft: linear-gradient(118deg, #2C36A0 0%, #1C6CAE 50%, #2BB6CF 100%); /* @kind color */
+  --gradient-ink: linear-gradient(160deg, #232C8A 0%, #141849 100%); /* @kind color */
+  --gradient-aqua: linear-gradient(120deg, #1C6CAE 0%, #2BB6CF 60%, #5DE3DC 100%); /* @kind color */
+  --gradient-hero-wash: radial-gradient(120% 120% at 0% 0%, #ECF6FC 0%, #E8FBFB 55%, #FFFFFF 100%); /* @kind color */
+}

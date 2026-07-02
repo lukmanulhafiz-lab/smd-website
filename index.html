@@ -1,0 +1,457 @@
+<!-- @dsCard group="Marketing Site" viewport="1320x920" name="Firm Website — Landing" subtitle="Hero, services, process, why-us, working inquiry form, responsive" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PT Sehat Masa Depan — Health Technology Consulting & AI Advisory</title>
+<meta name="description" content="PT Sehat Masa Depan bridges clinical credibility with regulatory reality — regulatory advisory, digital health strategy, capacity building, and AI &amp; data governance for organizations entering Indonesia's health market.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PT Sehat Masa Depan — Health Technology Consulting & AI Advisory">
+<meta property="og:description" content="Bridging clinical expertise with digital health governance in Indonesia.">
+<meta property="og:image" content="https://sehatmasadepan.com/logo-smd-mark.png">
+<link rel="icon" type="image/png" href="logo-smd-mark.png">
+<link rel="stylesheet" href="styles.css">
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #fff; color: var(--text-body); overflow-x: hidden; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  a { color: inherit; }
+  section[id] { scroll-margin-top: 86px; }
+
+  .nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.82); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border-subtle); }
+  .nav-inner { display: flex; align-items: center; gap: 28px; height: 70px; }
+  .brand { display: flex; align-items: center; gap: 11px; font-weight: 800; font-size: 16px; color: var(--indigo-800); letter-spacing: -.01em; }
+  .brand img { width: 38px; height: 38px; }
+  .nav-links { display: flex; gap: 26px; margin-left: 14px; }
+  .nav-links a { font-size: 14.5px; font-weight: 600; color: var(--text-body); }
+  .nav-links a:hover { color: var(--primary); text-decoration: none; }
+  .nav-cta { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 20px; border-radius: 12px; font-weight: 700; font-size: 14.5px; cursor: pointer; border: none; transition: all .16s ease; text-decoration: none; white-space: nowrap; }
+  .btn-ghost { background: transparent; color: var(--text-strong); }
+  .btn-ghost:hover { background: var(--surface-sunken); }
+  .btn-primary { background: var(--primary); color: #fff; box-shadow: var(--shadow-sm); }
+  .btn-primary:hover { background: var(--primary-hover); box-shadow: var(--shadow-brand); }
+  .btn-primary:active { transform: scale(.97); }
+  .btn-grad { background: var(--gradient-brand); color: #fff; box-shadow: var(--shadow-brand); }
+  .btn-grad:hover { filter: brightness(1.05); }
+  .btn-grad:active { transform: scale(.97); }
+  .btn-lg { height: 52px; padding: 0 26px; font-size: 16px; border-radius: 14px; }
+  .btn-block { width: 100%; justify-content: center; height: 50px; font-size: 15.5px; }
+
+  .nav-burger { display: none; width: 40px; height: 40px; border-radius: 10px; background: transparent; border: none; align-items: center; justify-content: center; cursor: pointer; color: var(--text-strong); flex-shrink: 0; }
+  .nav-burger:hover { background: var(--surface-sunken); }
+  .nav-mobile { display: none; flex-direction: column; gap: 2px; padding: 10px 28px 18px; }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a { padding: 11px 6px; font-size: 15px; font-weight: 600; color: var(--text-body); border-radius: 9px; }
+  .nav-mobile a:hover { background: var(--surface-sunken); text-decoration: none; }
+
+  .hero { position: relative; overflow: hidden; background: var(--gradient-hero-wash); }
+  .hero::after { content: ''; position: absolute; top: -180px; right: -160px; width: 620px; height: 620px; border-radius: 50%; background: radial-gradient(circle, rgba(93,227,220,.30), rgba(28,108,174,.05) 60%, transparent 70%); }
+  .hero-inner { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; padding: 78px 0 92px; position: relative; z-index: 1; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--border-subtle); box-shadow: var(--shadow-xs); border-radius: 999px; padding: 7px 14px 7px 9px; font-size: 12.5px; font-weight: 700; color: var(--blue-700); }
+  .eyebrow .pulse { width: 9px; height: 9px; border-radius: 50%; background: var(--success); box-shadow: 0 0 0 4px rgba(31,148,96,.18); }
+  h1.hero-title { font-size: clamp(32px, 4.6vw, 54px); line-height: 1.05; letter-spacing: -.035em; color: var(--text-strong); margin: 20px 0 0; }
+  .hero-sub { font-size: 18px; line-height: 1.6; color: var(--text-muted); margin: 20px 0 0; max-width: 500px; }
+  .hero-actions { display: flex; gap: 14px; margin-top: 30px; }
+  .hero-stats { display: flex; gap: 30px; margin-top: 42px; flex-wrap: wrap; }
+  .hero-stats .s .n { font-size: 28px; font-weight: 800; color: var(--indigo-800); letter-spacing: -.02em; }
+  .hero-stats .s .l { font-size: 12.5px; color: var(--text-muted); margin-top: 2px; max-width: 130px; }
+
+  .hero-visual { position: relative; display: flex; justify-content: center; }
+  .panelcard { width: 360px; max-width: 100%; background: #fff; border-radius: 22px; box-shadow: var(--shadow-xl); border: 1px solid var(--border-subtle); overflow: hidden; }
+  .panelcard .pc-head { background: var(--gradient-ink); padding: 20px; color: #fff; }
+  .panelcard .pc-head .t { font-weight: 800; font-size: 16px; }
+  .panelcard .pc-head .s { font-size: 12.5px; color: var(--aqua-200); margin-top: 3px; }
+  .pc-body { padding: 18px 20px 22px; }
+  .pc-step { display: flex; align-items: center; gap: 13px; padding: 9px 0; }
+  .pc-step .num { width: 30px; height: 30px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; flex-shrink: 0; }
+  .pc-step .lbl { font-weight: 700; font-size: 14px; color: var(--text-strong); }
+  .pc-step .sub { font-size: 12px; color: var(--text-muted); }
+  .float-card { position: absolute; background: #fff; border-radius: 16px; box-shadow: var(--shadow-lg); border: 1px solid var(--border-subtle); padding: 13px 15px; display: flex; align-items: center; gap: 11px; }
+  .float-1 { top: 40px; left: -28px; }
+  .float-2 { bottom: 48px; right: -30px; }
+  .float-card .fi { width: 38px; height: 38px; border-radius: 11px; display: flex; align-items: center; justify-content: center; }
+  .float-card .ft { font-size: 11px; color: var(--text-muted); }
+  .float-card .fv { font-size: 14px; font-weight: 800; color: var(--text-strong); }
+
+  .trust { padding: 30px 0; border-bottom: 1px solid var(--border-subtle); }
+  .trust-row { display: flex; align-items: center; justify-content: center; gap: 38px; flex-wrap: wrap; }
+  .trust-row .t-label { font-size: 13px; color: var(--text-subtle); font-weight: 600; }
+  .trust-row .org { font-size: 16px; font-weight: 800; color: var(--neutral-400); letter-spacing: -.01em; }
+
+  section.block { padding: 86px 0; }
+  .sec-head { text-align: center; max-width: 680px; margin: 0 auto 52px; }
+  .sec-head .se { color: var(--accent-hover); }
+  .sec-head h2 { font-size: clamp(26px, 3.4vw, 40px); letter-spacing: -.03em; color: var(--text-strong); margin: 12px 0 0; }
+  .sec-head p { font-size: 17px; color: var(--text-muted); margin: 14px 0 0; line-height: 1.6; }
+
+  .feat-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+  .feat { background: #fff; border: 1px solid var(--border-subtle); border-radius: 20px; padding: 28px; box-shadow: var(--shadow-xs); transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease; display: flex; gap: 18px; }
+  .feat:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: var(--border-brand); }
+  .feat .fic { width: 54px; height: 54px; border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .feat h3 { font-size: 19px; color: var(--text-strong); margin: 0 0 8px; }
+  .feat p { font-size: 14.5px; color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+  .steps { background: var(--surface-page); }
+  .step-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 16px; }
+  .step { padding: 0 4px; }
+  .step .num { width: 48px; height: 48px; border-radius: 15px; background: #fff; border: 1px solid var(--border-subtle); box-shadow: var(--shadow-sm); display: flex; align-items: center; justify-content: center; margin: 0 0 16px; font-weight: 800; font-size: 18px; color: var(--primary); font-family: var(--font-mono); }
+  .step h3 { font-size: 16px; color: var(--text-strong); margin: 0 0 7px; }
+  .step p { font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin: 0; }
+
+  .why-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+  .why { background: #fff; border: 1px solid var(--border-subtle); border-radius: 18px; padding: 24px; }
+  .why .wic { width: 46px; height: 46px; border-radius: 13px; background: var(--blue-50); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+  .why h3 { font-size: 16px; color: var(--text-strong); margin: 0 0 7px; }
+  .why p { font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin: 0; }
+
+  /* Contact — gradient band with copy + working inquiry form */
+  .contact-band { background: var(--gradient-brand); border-radius: 28px; padding: 56px; position: relative; overflow: hidden; color: #fff; }
+  .contact-inner { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; position: relative; z-index: 1; }
+  .contact-copy .smd-eyebrow { color: var(--mint-400); }
+  .contact-copy h2 { font-size: clamp(24px, 3vw, 36px); letter-spacing: -.03em; color: #fff; margin: 14px 0 0; line-height: 1.14; }
+  .contact-copy p { font-size: 16px; color: rgba(255,255,255,.82); margin: 14px 0 0; line-height: 1.6; max-width: 460px; }
+  .contact-lines { display: flex; flex-direction: column; gap: 12px; margin-top: 26px; }
+  .cline { display: inline-flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600; color: rgba(255,255,255,.92); width: fit-content; }
+  a.cline:hover { text-decoration: underline; }
+
+  .lead { background: #fff; border-radius: 20px; box-shadow: var(--shadow-xl); padding: 26px; color: var(--text-body); }
+  .lead h3 { font-size: 19px; color: var(--text-strong); margin: 0; letter-spacing: -.02em; }
+  .lead .ls { font-size: 13px; color: var(--text-muted); margin: 5px 0 16px; }
+  .field { margin-bottom: 12px; }
+  .field label { display: block; font-size: 12.5px; font-weight: 700; color: var(--text-strong); margin-bottom: 6px; }
+  .field input, .field select, .field textarea { width: 100%; box-sizing: border-box; height: 44px; padding: 0 13px; font-family: var(--font-sans); font-size: 14.5px; color: var(--text-strong); background: var(--surface-card); border: 1.5px solid var(--border-strong); border-radius: 10px; outline: none; transition: border-color .15s, box-shadow .15s; }
+  .field textarea { height: 74px; padding: 11px 13px; resize: none; font-family: var(--font-sans); }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--primary); box-shadow: var(--ring); }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+  .lead .note { font-size: 11.5px; color: var(--text-subtle); margin-top: 12px; text-align: center; line-height: 1.5; }
+
+  footer { border-top: 1px solid var(--border-subtle); padding: 54px 0 34px; }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1.2fr; gap: 28px; }
+  .foot-brand p { font-size: 13.5px; color: var(--text-muted); margin: 14px 0 0; max-width: 300px; line-height: 1.6; }
+  .foot-col h4 { font-size: 13px; text-transform: uppercase; letter-spacing: .07em; color: var(--text-strong); margin: 0 0 14px; }
+  .foot-col a, .foot-col .line { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-muted); margin-bottom: 10px; }
+  .foot-col a:hover { color: var(--primary); text-decoration: none; }
+  .foot-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--border-subtle); font-size: 12.5px; color: var(--text-subtle); font-family: var(--font-mono); }
+  [data-lucide] { display: block; }
+
+  /* Scroll reveal — gated on motion preference via JS (adds .reveal only when allowed) */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s cubic-bezier(.4,0,.2,1), transform .6s cubic-bezier(.4,0,.2,1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .feat-grid .feat:nth-child(1) { transition-delay: 0s; }
+  .feat-grid .feat:nth-child(2) { transition-delay: .08s; }
+  .feat-grid .feat:nth-child(3) { transition-delay: .16s; }
+  .feat-grid .feat:nth-child(4) { transition-delay: .24s; }
+  .step-grid .step:nth-child(1) { transition-delay: 0s; }
+  .step-grid .step:nth-child(2) { transition-delay: .07s; }
+  .step-grid .step:nth-child(3) { transition-delay: .14s; }
+  .step-grid .step:nth-child(4) { transition-delay: .21s; }
+  .step-grid .step:nth-child(5) { transition-delay: .28s; }
+  .why-grid .why:nth-child(1) { transition-delay: 0s; }
+  .why-grid .why:nth-child(2) { transition-delay: .08s; }
+  .why-grid .why:nth-child(3) { transition-delay: .16s; }
+  .why-grid .why:nth-child(4) { transition-delay: .24s; }
+
+  @media (max-width: 900px) {
+    .nav-links, .nav-cta { display: none; }
+    .nav-burger { display: flex; }
+    .nav-inner { gap: 14px; }
+
+    .hero-inner { grid-template-columns: 1fr; padding: 52px 0 60px; gap: 40px; }
+    .hero-visual { margin-top: 8px; }
+    .float-1, .float-2 { display: none; }
+    .hero-stats { gap: 22px; }
+
+    .step-grid { grid-template-columns: repeat(3,1fr); gap: 22px 16px; }
+    .why-grid { grid-template-columns: repeat(2,1fr); }
+
+    .contact-inner { grid-template-columns: 1fr; }
+    .contact-copy p { max-width: none; }
+
+    .foot-grid { grid-template-columns: 1fr 1fr; gap: 30px 20px; }
+    .foot-brand { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 620px) {
+    .wrap { padding: 0 20px; }
+    section.block { padding: 60px 0; }
+    .hero-sub { font-size: 16px; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .hero-actions .btn { width: 100%; }
+    .hero-stats { gap: 18px; }
+    .hero-stats .s { min-width: 40%; }
+
+    .feat-grid, .step-grid, .why-grid { grid-template-columns: 1fr; }
+    .feat { padding: 24px; }
+
+    .contact-band { padding: 34px 22px; border-radius: 22px; }
+    .lead { padding: 22px; }
+    .field-row { grid-template-columns: 1fr; }
+
+    .foot-grid { grid-template-columns: 1fr; }
+    .foot-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .trust-row { gap: 18px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { transition: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand"><img src="logo-smd-mark.png" alt="PT Sehat Masa Depan logo">PT SEHAT MASA DEPAN</div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#approach">Approach</a>
+        <a href="#why">Why Us</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="#contact">Book a Consultation</a>
+      </div>
+      <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
+        <i data-lucide="menu" width="22" height="22"></i>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="#services">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#why">Why Us</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-primary" href="#contact" style="margin-top:8px;justify-content:center">Book a Consultation</a>
+    </div>
+  </div>
+
+  <main>
+    <div class="hero">
+      <div class="wrap hero-inner">
+        <div>
+          <span class="eyebrow"><span class="pulse"></span> Health Technology Consulting &amp; AI Advisory</span>
+          <h1 class="hero-title">We bridge <span class="smd-gradient-text">clinical credibility</span> with regulatory reality.</h1>
+          <p class="hero-sub">We help foreign health-tech companies, development organizations, and government agencies navigate Indonesia's complex health regulatory landscape — with confidence and speed.</p>
+          <div class="hero-actions">
+            <a class="btn btn-grad btn-lg" href="#contact"><i data-lucide="calendar-check" width="20" height="20" stroke="#fff"></i> Book a Consultation</a>
+            <a class="btn btn-ghost btn-lg" href="#services" style="border:1px solid var(--border-strong)"><i data-lucide="layers" width="18" height="18"></i> Our Services</a>
+          </div>
+          <div class="hero-stats">
+            <div class="s"><div class="n">15 yrs</div><div class="l">Across the health ecosystem</div></div>
+            <div class="s"><div class="n">70,000+</div><div class="l">Physicians reached</div></div>
+            <div class="s"><div class="n">250+</div><div class="l">Digital health projects</div></div>
+            <div class="s"><div class="n">USD 1M</div><div class="l">Public-health funding secured</div></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="float-card float-1">
+            <span class="fi" style="background:var(--green-50)"><i data-lucide="shield-check" width="20" height="20" stroke="var(--green-600)"></i></span>
+            <div><div class="ft">Kemenkes</div><div class="fv">AI Sandbox Evaluator</div></div>
+          </div>
+          <div class="float-card float-2">
+            <span class="fi" style="background:var(--blue-50)"><i data-lucide="stethoscope" width="20" height="20" stroke="var(--primary)"></i></span>
+            <div><div class="ft">Clinical depth</div><div class="fv">M.D. · 60+ publications</div></div>
+          </div>
+          <div class="panelcard">
+            <div class="pc-head">
+              <div class="t">Engagement Pathway</div>
+              <div class="s">How a regulatory engagement unfolds</div>
+            </div>
+            <div class="pc-body">
+              <div class="pc-step"><span class="num" style="background:var(--blue-50);color:var(--primary)">1</span><div><div class="lbl">Scoping</div><div class="sub">Product, context, timeline, success criteria</div></div></div>
+              <div class="pc-step"><span class="num" style="background:var(--aqua-50);color:var(--aqua-700)">2</span><div><div class="lbl">Mapping</div><div class="sub">Pathway charted, gaps &amp; risks flagged</div></div></div>
+              <div class="pc-step"><span class="num" style="background:var(--indigo-50);color:var(--indigo-600)">3</span><div><div class="lbl">Stakeholder Navigation</div><div class="sub">Directorates &amp; partner candidates engaged</div></div></div>
+              <div class="pc-step"><span class="num" style="background:var(--amber-50);color:var(--amber-700)">4</span><div><div class="lbl">Deliverables</div><div class="sub">Submission-ready documentation</div></div></div>
+              <div class="pc-step"><span class="num" style="background:var(--green-50);color:var(--green-700)">5</span><div><div class="lbl">Review &amp; Advisory</div><div class="sub">Ongoing guidance through the process</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="trust">
+      <div class="wrap trust-row">
+        <span class="t-label">15 years across</span>
+        <span class="org">Roche</span>
+        <span class="org">AstraZeneca</span>
+        <span class="org">Daiichi Sankyo</span>
+        <span class="org">Alodokter</span>
+        <span class="org">Nestlé</span>
+        <span class="org">Kemenkes</span>
+      </div>
+    </div>
+
+    <section class="block" id="services">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="smd-eyebrow se">Four ways we create value</span>
+          <h2>Service lines</h2>
+          <p>At the intersection of clinical medicine, digital health governance, and AI regulation.</p>
+        </div>
+        <div class="feat-grid">
+          <div class="feat reveal"><span class="fic" style="background:var(--blue-50)"><i data-lucide="clipboard-check" width="26" height="26" stroke="var(--primary)"></i></span><div><h3>Regulatory Advisory</h3><p>Medical device (NIE/SAS/IDAK/CDAKB) and digital health (SaMD, AI Sandbox) regulatory pathway navigation for foreign health-tech companies entering Indonesia.</p></div></div>
+          <div class="feat reveal"><span class="fic" style="background:var(--aqua-50)"><i data-lucide="route" width="26" height="26" stroke="var(--accent-hover)"></i></span><div><h3>Digital Health Strategy</h3><p>Market entry strategy, stakeholder mapping, and go-to-market planning for digital health and AI-enabled solutions in the Indonesian ecosystem.</p></div></div>
+          <div class="feat reveal"><span class="fic" style="background:var(--green-50)"><i data-lucide="graduation-cap" width="26" height="26" stroke="var(--green-600)"></i></span><div><h3>Capacity Building</h3><p>Curriculum design and training for healthcare professionals; MOOC development for Kemenkes e-learning platforms.</p></div></div>
+          <div class="feat reveal"><span class="fic" style="background:var(--indigo-50)"><i data-lucide="shield-check" width="26" height="26" stroke="var(--indigo-600)"></i></span><div><h3>AI &amp; Data Governance</h3><p>AI governance frameworks, regulatory sandbox evaluation, and policy advisory at the intersection of clinical credibility and technology compliance.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block steps" id="approach">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="smd-eyebrow se">How an engagement unfolds</span>
+          <h2>A clear, accountable process</h2>
+        </div>
+        <div class="step-grid">
+          <div class="step reveal"><div class="num">01</div><h3>Scoping</h3><p>Understand your product, regulatory context, timeline, and success criteria.</p></div>
+          <div class="step reveal"><div class="num">02</div><h3>Mapping</h3><p>Chart the pathway, identify documentation gaps, flag risks before they block.</p></div>
+          <div class="step reveal"><div class="num">03</div><h3>Stakeholder Navigation</h3><p>Engage government directorates, partner candidates, and institutional channels.</p></div>
+          <div class="step reveal"><div class="num">04</div><h3>Deliverables</h3><p>Submission-ready documentation, gap analyses, and compliance frameworks.</p></div>
+          <div class="step reveal"><div class="num">05</div><h3>Review &amp; Advisory</h3><p>Ongoing guidance as the regulatory process progresses.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="why">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="smd-eyebrow se">Why partner with us</span>
+          <h2>Active presence inside the system</h2>
+          <p>Not just knowledge of the rules — clinical depth and working relationships within the Kemenkes ecosystem.</p>
+        </div>
+        <div class="why-grid">
+          <div class="why reveal"><span class="wic"><i data-lucide="stethoscope" width="22" height="22" stroke="var(--primary)"></i></span><h3>Clinical Credibility</h3><p>M.D., Universitas Indonesia · 60+ scientific publications · Medical Science Liaison for diabetes RWE trials.</p></div>
+          <div class="why reveal"><span class="wic"><i data-lucide="landmark" width="22" height="22" stroke="var(--primary)"></i></span><h3>Kemenkes Insider Access</h3><p>Active External Evaluator of the Kemenkes AI Regulatory Sandbox — the same directorate evaluating SaMD and NIE.</p></div>
+          <div class="why reveal"><span class="wic"><i data-lucide="handshake" width="22" height="22" stroke="var(--primary)"></i></span><h3>Trusted by Government</h3><p>Active Ministry of Health training engagements · 70,000+ physicians reached via national platforms.</p></div>
+          <div class="why reveal"><span class="wic"><i data-lucide="layers" width="22" height="22" stroke="var(--primary)"></i></span><h3>Dual-Track Expertise</h3><p>Pharma RWE background and AI deployment experience — clinical and digital health in a single engagement.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="contact">
+      <div class="wrap">
+        <div class="contact-band reveal">
+          <div class="contact-inner">
+            <div class="contact-copy">
+              <span class="smd-eyebrow">Let's talk</span>
+              <h2>Entering Indonesia's health market? Let's map your pathway.</h2>
+              <p>A focused first conversation on your regulatory context and route to market. We reply within 2 business days.</p>
+              <div class="contact-lines">
+                <a class="cline" href="mailto:halo@sehatmasadepan.com"><i data-lucide="mail" width="18" height="18" stroke="var(--mint-400)"></i>halo@sehatmasadepan.com</a>
+                <a class="cline" href="tel:+628111441992"><i data-lucide="phone" width="18" height="18" stroke="var(--mint-400)"></i>+62 811 144 1992</a>
+                <span class="cline"><i data-lucide="map-pin" width="18" height="18" stroke="var(--mint-400)"></i>Pancoran, Jakarta Selatan</span>
+              </div>
+            </div>
+            <form class="lead" id="inquiryForm">
+              <h3>Request a consultation</h3>
+              <p class="ls">Tell us about your product and timeline.</p>
+              <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" type="text" placeholder="Your name" required></div>
+              <div class="field-row">
+                <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" type="text" placeholder="Organization" required></div>
+                <div class="field"><label for="f-country">Country</label><input id="f-country" name="country" type="text" placeholder="e.g. Singapore"></div>
+              </div>
+              <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" placeholder="name@company.com" required></div>
+              <div class="field"><label for="f-service">How can we help?</label>
+                <select id="f-service" name="service">
+                  <option>Regulatory Advisory (NIE / SAS / SaMD)</option>
+                  <option>Digital Health Strategy &amp; market entry</option>
+                  <option>Capacity Building &amp; training</option>
+                  <option>AI &amp; Data Governance</option>
+                  <option>Not sure yet — let's discuss</option>
+                </select>
+              </div>
+              <div class="field"><label for="f-msg">Brief context</label><textarea id="f-msg" name="message" placeholder="Tell us about your product and timeline…"></textarea></div>
+              <button class="btn btn-grad btn-block" type="submit"><i data-lucide="send" width="18" height="18" stroke="#fff"></i> Send Inquiry</button>
+              <div class="note">Submitting opens a pre-filled email to halo@sehatmasadepan.com. Your details are kept confidential and used only to respond to your inquiry.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <div class="brand"><img src="logo-smd-mark.png" alt="PT Sehat Masa Depan logo">PT SEHAT MASA DEPAN</div>
+          <p>Indonesian health technology consulting firm — bridging clinical expertise with digital health governance. Founded 2025.</p>
+        </div>
+        <div class="foot-col"><h4>Services</h4><a href="#services">Regulatory Advisory</a><a href="#services">Digital Health Strategy</a><a href="#services">Capacity Building</a><a href="#services">AI &amp; Data Governance</a></div>
+        <div class="foot-col"><h4>Contact</h4>
+          <span class="line"><i data-lucide="phone" width="15" height="15" stroke="var(--text-muted)"></i> +62 811 144 1992</span>
+          <span class="line"><i data-lucide="mail" width="15" height="15" stroke="var(--text-muted)"></i> halo@sehatmasadepan.com</span>
+          <span class="line"><i data-lucide="map-pin" width="15" height="15" stroke="var(--text-muted)"></i> Pancoran, Jakarta Selatan</span>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 PT Sehat Masa Depan</span>
+        <span>NIB 3108250035296 · KBLI 70209 &amp; 62015 · PMDN</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@0.456.0/dist/umd/lucide.min.js"></script>
+  <script>
+    lucide.createIcons();
+
+    // Mobile nav toggle
+    (function(){
+      var burger = document.getElementById('navBurger');
+      var mobile = document.getElementById('navMobile');
+      function setOpen(open){
+        mobile.classList.toggle('open', open);
+        burger.setAttribute('aria-expanded', String(open));
+        burger.innerHTML = open
+          ? '<i data-lucide="x" width="22" height="22"></i>'
+          : '<i data-lucide="menu" width="22" height="22"></i>';
+        lucide.createIcons();
+      }
+      burger.addEventListener('click', function(){ setOpen(!mobile.classList.contains('open')); });
+      mobile.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setOpen(false); }); });
+    })();
+
+    // Scroll-reveal, respects reduced-motion
+    (function(){
+      var els = document.querySelectorAll('.reveal');
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduced || !('IntersectionObserver' in window)) {
+        els.forEach(function(el){ el.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function(el){ io.observe(el); });
+    })();
+
+    // Inquiry form — opens a pre-filled email draft.
+    // TODO(dev): swap this handler for a real backend/email-service call when one is available.
+    document.getElementById('inquiryForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      var f = e.target;
+      var name = f.name.value.trim();
+      var company = f.company.value.trim();
+      var country = f.country.value.trim();
+      var email = f.email.value.trim();
+      var service = f.service.value;
+      var message = f.message.value.trim();
+      var subject = 'Consultation request — ' + (company || name || 'New inquiry');
+      var body = [
+        'Name: ' + name,
+        'Company: ' + company,
+        'Country: ' + country,
+        'Email: ' + email,
+        'Service: ' + service,
+        '',
+        message
+      ].join('\n');
+      window.location.href = 'mailto:halo@sehatmasadepan.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    });
+  </script>
+</body>
+</html>

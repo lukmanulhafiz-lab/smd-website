@@ -1,0 +1,66 @@
+/* ============================================================
+   Sehat Masa Depan — Typography tokens
+   Primary family: Plus Jakarta Sans (designed for the city of
+   Jakarta — a deliberate cultural + health-tech fit).
+   Numeric / code: JetBrains Mono for vitals, IDs, dosages.
+   ============================================================ */
+
+:root {
+  /* Families */
+  --font-display: 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-sans:    'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* Weights */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --weight-extrabold:800;
+
+  /* Type scale (px) — 1.20–1.25 modular, tuned for UI + display */
+  --text-2xs: 11px;
+  --text-xs:  12px;
+  --text-sm:  13px;
+  --text-base:15px;
+  --text-md:  16px;
+  --text-lg:  18px;
+  --text-xl:  20px;
+  --text-2xl: 24px;
+  --text-3xl: 30px;
+  --text-4xl: 38px;
+  --text-5xl: 48px;
+  --text-6xl: 60px;
+  --text-7xl: 76px;
+
+  /* Line heights */
+  --leading-none:    1;
+  --leading-tight:   1.15;
+  --leading-snug:    1.3;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.65;
+
+  /* Letter spacing */
+  --tracking-tighter: -0.03em;
+  --tracking-tight:   -0.015em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.02em;
+  --tracking-wider:   0.06em;
+  --tracking-caps:    0.10em;
+
+  /* ---- Semantic text roles ---- */
+  --display-font:   var(--font-display);
+  --display-weight: var(--weight-extrabold);
+  --display-tracking: var(--tracking-tight);
+
+  --heading-font:   var(--font-display);
+  --heading-weight: var(--weight-bold);
+
+  --body-font:   var(--font-sans);
+  --body-weight: var(--weight-regular);
+  --body-size:   var(--text-base);
+  --body-leading: var(--leading-normal);
+
+  --label-weight: var(--weight-semibold);
+  --eyebrow-tracking: var(--tracking-caps);
+}
