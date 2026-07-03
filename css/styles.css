@@ -1,7 +1,6 @@
 /* ============================================================
    Sehat Masa Depan — Design System
-   Global entry point. Consumers link THIS file only.
-   Keep this file as @import lines only.
+   Global entry point. Link THIS file only.
    ============================================================ */
 
 @import url('./tokens/fonts.css');
