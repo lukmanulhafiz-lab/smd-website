@@ -1,0 +1,505 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sehat Masa Depan &mdash; Product Studio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+  :root{
+    --bg:#F6F8FB; --surface:#FFFFFF; --surface-2:#F1F5FA;
+    --ink:#141B2E; --muted:#4E5A69; --faint:#9AA6B6;
+    --line:#DEE4EC; --line-soft:#EDF1F6;
+    --brand:#1C6CAE; --brand-deep:#1A5790; --brand-ink:#5DD8DD; --brand-wash:#ECF6FC;
+    --accent:#1FA9B8; --accent-deep:#1A8B9A; --accent-wash:#E8FBFB;
+    --ink-inv:#EAF1FB;
+    --deep:#232C8A; --deep-2:#141849;
+    --shadow:0 1px 2px rgba(20,36,70,.05), 0 14px 40px rgba(20,36,70,.10);
+    --shadow-sm:0 1px 2px rgba(20,36,70,.05), 0 5px 16px rgba(20,36,70,.07);
+    --gradient-brand:linear-gradient(118deg,#22369B 0%,#1C6CAE 42%,#2BB6CF 78%,#5DE3DC 100%);
+    --gradient-ink:linear-gradient(160deg,#232C8A 0%,#141849 100%);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0B1122; --surface:#151C30; --surface-2:#10162A;
+      --ink:#EAF1FB; --muted:#9FADC2; --faint:#66738C;
+      --line:#26304A; --line-soft:#1A2138;
+      --brand:#429AD4; --brand-deep:#2480C0; --brand-ink:#5DD8DD; --brand-wash:#12294A;
+      --accent:#34C3CE; --accent-deep:#5DD8DD; --accent-wash:#122E3A;
+      --ink-inv:#EAF1FB;
+      --deep:#1B2168; --deep-2:#0F1338;
+      --shadow:0 1px 2px rgba(0,0,0,.40), 0 16px 44px rgba(0,0,0,.50);
+      --shadow-sm:0 1px 2px rgba(0,0,0,.40), 0 6px 18px rgba(0,0,0,.40);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0B1122; --surface:#151C30; --surface-2:#10162A; --ink:#EAF1FB; --muted:#9FADC2; --faint:#66738C;
+    --line:#26304A; --line-soft:#1A2138; --brand:#429AD4; --brand-deep:#2480C0; --brand-ink:#5DD8DD; --brand-wash:#12294A;
+    --accent:#34C3CE; --accent-deep:#5DD8DD; --accent-wash:#122E3A; --ink-inv:#EAF1FB; --deep:#1B2168; --deep-2:#0F1338;
+    --shadow:0 1px 2px rgba(0,0,0,.40), 0 16px 44px rgba(0,0,0,.50);
+    --shadow-sm:0 1px 2px rgba(0,0,0,.40), 0 6px 18px rgba(0,0,0,.40);
+  }
+  :root[data-theme="light"]{
+    --bg:#F6F8FB; --surface:#FFFFFF; --surface-2:#F1F5FA; --ink:#141B2E; --muted:#4E5A69; --faint:#9AA6B6;
+    --line:#DEE4EC; --line-soft:#EDF1F6; --brand:#1C6CAE; --brand-deep:#1A5790; --brand-ink:#5DD8DD; --brand-wash:#ECF6FC;
+    --accent:#1FA9B8; --accent-deep:#1A8B9A; --accent-wash:#E8FBFB; --ink-inv:#EAF1FB; --deep:#232C8A; --deep-2:#141849;
+    --shadow:0 1px 2px rgba(20,36,70,.05), 0 14px 40px rgba(20,36,70,.10);
+    --shadow-sm:0 1px 2px rgba(20,36,70,.05), 0 5px 16px rgba(20,36,70,.07);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; scroll-snap-type:y proximity; }
+  body{ margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Plus Jakarta Sans",-apple-system,"Segoe UI",system-ui,Roboto,Helvetica,Arial,sans-serif;
+    font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  h1,h2,h3{ text-wrap:balance; letter-spacing:-.03em; margin:0; }
+  p{ margin:0; text-wrap:pretty; }
+  .mono{ font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-variant-numeric:tabular-nums; }
+  .tnum{ font-variant-numeric:tabular-nums; }
+  .eyebrow{ font-size:12px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; color:var(--brand-deep); }
+  .accent{ color:var(--accent-deep); }
+
+  /* slides */
+  .slide{ min-height:100svh; scroll-snap-align:start; display:flex; flex-direction:column; justify-content:center;
+    padding:72px 32px; position:relative; }
+  .inner{ width:100%; max-width:920px; margin:0 auto; }
+  .slide + .slide{ border-top:1px solid var(--line-soft); }
+  .slide.deep{ background:linear-gradient(155deg,var(--deep),var(--deep-2)); color:var(--ink-inv); border-top:0; }
+  .slide.deep .eyebrow{ color:var(--brand-ink); }
+  .slide.deep h2{ color:#fff; }
+
+  .snum{ position:absolute; top:26px; right:32px; font-size:12px; font-weight:600; letter-spacing:.14em;
+    color:var(--faint); font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-variant-numeric:tabular-nums; }
+  .slide.deep .snum{ color:rgba(255,255,255,.4); }
+
+  /* toggle + dots */
+  .tt{ position:fixed; top:16px; left:16px; z-index:40; width:40px; height:40px; border-radius:12px;
+    border:1px solid var(--line); background:var(--surface); color:var(--muted); display:grid; place-items:center;
+    cursor:pointer; box-shadow:var(--shadow-sm); }
+  .tt svg{ width:18px; height:18px; }
+  .tt:focus-visible{ outline:2px solid var(--brand); outline-offset:2px; }
+  .backlink{ position:fixed; top:16px; left:64px; z-index:40; height:40px; display:inline-flex; align-items:center; gap:7px;
+    padding:0 15px 0 12px; border-radius:12px; border:1px solid var(--line); background:var(--surface); color:var(--muted);
+    font-size:13px; font-weight:650; text-decoration:none; box-shadow:var(--shadow-sm); }
+  .backlink:hover{ color:var(--brand); }
+  .backlink svg{ width:16px; height:16px; }
+  .backlink:focus-visible{ outline:2px solid var(--brand); outline-offset:2px; }
+  @media (max-width:520px){ .backlink span{ display:none; } .backlink{ padding:0 11px; } }
+  .dots{ position:fixed; right:20px; top:50%; transform:translateY(-50%); z-index:40; display:flex; flex-direction:column; gap:11px; }
+  .dots a{ width:9px; height:9px; border-radius:50%; background:var(--line); transition:transform .2s, background .2s; }
+  .dots a:hover{ background:var(--brand); }
+  .dots a.on{ background:var(--brand); transform:scale(1.35); }
+  @media (max-width:900px){ .dots{ display:none; } }
+
+  /* headings scale */
+  .h-lg{ font-size:clamp(30px,6vw,58px); font-weight:800; line-height:1.03; }
+  .h-md{ font-size:clamp(26px,4.4vw,40px); font-weight:800; line-height:1.08; }
+  .lede{ font-size:clamp(16px,2.2vw,20px); color:var(--muted); line-height:1.55; max-width:44ch; }
+  .slide.deep .lede{ color:#B9CCC4; }
+
+  /* cover */
+  .brandrow{ display:flex; align-items:center; gap:13px; margin-bottom:34px; }
+  .mark{ width:48px; height:48px; border-radius:14px; flex:none; background:var(--brand-wash);
+    display:grid; place-items:center; box-shadow:inset 0 0 0 1px rgba(28,108,174,.16); }
+  .mark img{ width:34px; height:34px; object-fit:contain; display:block; }
+  .wordmark .n{ font-size:18px; font-weight:800; letter-spacing:-.01em; line-height:1.05; }
+  .wordmark .s{ font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--brand-deep); margin-top:2px; }
+  .cover-foot{ margin-top:38px; display:flex; align-items:center; gap:10px 20px; flex-wrap:wrap; font-size:14px; color:var(--muted); }
+  .cover-foot span{ display:inline-flex; align-items:center; gap:9px; }
+  .cover-foot span::before{ content:""; width:5px; height:5px; border-radius:50%; background:var(--accent); flex:none; }
+  .pulse{ width:100%; max-width:560px; height:52px; margin-top:30px; display:block; overflow:visible; }
+  .pulse path{ stroke:url(#pulseGrad); stroke-width:2.6; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+  @media (prefers-reduced-motion:no-preference){
+    .pulse.draw path{ stroke-dasharray:620; stroke-dashoffset:620; animation:draw 1.8s .3s ease forwards; }
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  .scrollhint{ position:absolute; bottom:26px; left:32px; font-size:12px; font-weight:700; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--faint); display:flex; align-items:center; gap:9px; }
+  .scrollhint svg{ width:15px; height:15px; }
+
+  /* generic content */
+  .body-p{ font-size:clamp(17px,2.4vw,21px); color:var(--muted); line-height:1.55; max-width:30ch; }
+  .lead-max{ max-width:56ch; }
+  .mt-s{ margin-top:16px; } .mt-m{ margin-top:26px; } .mt-l{ margin-top:36px; }
+
+  /* service / build grids */
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .card{ background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:22px; box-shadow:var(--shadow-sm); }
+  .slide.deep .card{ background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.09); box-shadow:none; }
+  .card .ci{ width:42px; height:42px; border-radius:12px; background:var(--brand-wash); color:var(--brand-deep);
+    display:grid; place-items:center; margin-bottom:14px; }
+  .slide.deep .card .ci{ background:rgba(31,169,184,.16); color:var(--brand-ink); }
+  .card .ci svg{ width:22px; height:22px; }
+  .card h3{ font-size:17px; font-weight:750; }
+  .card p{ font-size:14.5px; color:var(--muted); margin-top:7px; line-height:1.5; }
+  .slide.deep .card p{ color:#AEC1B9; }
+  .card .step{ font-size:12px; font-weight:600; letter-spacing:.1em; color:var(--brand-deep);
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+
+  /* chips */
+  .chips{ display:flex; flex-wrap:wrap; gap:10px; }
+  .chip{ display:inline-flex; align-items:center; gap:9px; background:var(--surface); border:1px solid var(--line);
+    border-radius:12px; padding:12px 16px; font-size:15px; font-weight:600; box-shadow:var(--shadow-sm); }
+  .chip svg{ width:18px; height:18px; color:var(--brand); flex:none; }
+
+  /* why list */
+  .why{ display:grid; grid-template-columns:1fr 1fr; gap:18px 30px; }
+  .why .w{ display:grid; grid-template-columns:auto 1fr; gap:15px; }
+  .why .wi{ width:40px; height:40px; border-radius:11px; flex:none; display:grid; place-items:center;
+    background:var(--accent-wash); color:var(--accent-deep); }
+  .why .wi svg{ width:21px; height:21px; }
+  .why h3{ font-size:16.5px; font-weight:750; }
+  .why p{ font-size:14.5px; color:var(--muted); margin-top:4px; line-height:1.5; }
+
+  /* work / case */
+  .work{ display:grid; grid-template-columns:1.05fr .95fr; gap:28px; align-items:center; }
+  .work-copy .kicker{ font-size:13px; font-weight:800; letter-spacing:.05em; color:var(--accent-deep); }
+  .work-copy h3{ font-size:clamp(24px,3.6vw,34px); font-weight:820; margin-top:10px; }
+  .work-copy p{ color:var(--muted); font-size:16px; margin-top:14px; line-height:1.6; max-width:46ch; }
+  .work-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .tag{ font-size:12.5px; font-weight:700; color:var(--brand-deep); background:var(--brand-wash);
+    border:1px solid rgba(28,108,174,.18); border-radius:999px; padding:5px 12px; }
+  .mock{ background:linear-gradient(155deg,var(--deep),var(--deep-2)); border-radius:20px; padding:20px; color:#EAF2EE;
+    box-shadow:var(--shadow); }
+  .mock-bar{ display:flex; align-items:center; gap:7px; margin-bottom:16px; }
+  .mock-bar i{ width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,.22); }
+  .mock-bar .t{ margin-left:8px; font-size:11.5px; color:rgba(255,255,255,.55); letter-spacing:.03em; }
+  .mock-col{ display:flex; gap:10px; }
+  .mcol{ flex:1; }
+  .mcol .h{ font-size:9.5px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.5); margin-bottom:8px; }
+  .mcard{ background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:9px; padding:9px 10px; margin-bottom:8px; }
+  .mcard .nm{ font-size:11.5px; font-weight:700; }
+  .mcard .mm{ font-size:9.5px; color:rgba(255,255,255,.5); margin-top:2px; }
+  .mcard .pill{ display:inline-block; margin-top:6px; font-size:9px; font-weight:600; color:#5DE3DC;
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-variant-numeric:tabular-nums;
+    background:rgba(31,169,184,.16); border-radius:999px; padding:2px 8px; }
+  .mdot{ float:right; width:7px; height:7px; border-radius:50%; }
+
+  /* engagement */
+  .eng{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .eng .e{ background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:22px; box-shadow:var(--shadow-sm);
+    display:flex; flex-direction:column; }
+  .slide.deep .eng .e{ background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.09); box-shadow:none; }
+  .eng .num{ font-size:13px; font-weight:600; letter-spacing:.1em; color:var(--accent-deep);
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-variant-numeric:tabular-nums; }
+  .eng h3{ font-size:18px; font-weight:780; margin-top:8px; }
+  .eng p{ font-size:14px; color:var(--muted); margin-top:8px; line-height:1.5; flex:1; }
+  .slide.deep .eng p{ color:#AEC1B9; }
+  .eng .when{ margin-top:14px; font-size:12.5px; font-weight:700; color:var(--brand-deep);
+    background:var(--brand-wash); border-radius:999px; padding:4px 12px; align-self:flex-start; }
+  .slide.deep .eng .when{ background:rgba(31,169,184,.16); color:var(--brand-ink); }
+
+  /* CTA */
+  .cta-h{ font-size:clamp(30px,6vw,54px); font-weight:840; line-height:1.05; }
+  .btn{ display:inline-flex; align-items:center; gap:10px; margin-top:26px; background:var(--gradient-brand); color:#fff;
+    border:0; border-radius:999px; padding:15px 28px; font-size:16px; font-weight:700; text-decoration:none;
+    box-shadow:0 8px 24px rgba(28,108,174,.32); transition:transform .18s ease, box-shadow .18s ease, filter .18s ease; }
+  .btn:hover{ filter:brightness(1.05); box-shadow:0 10px 30px rgba(28,108,174,.42); }
+  .btn:active{ transform:translateY(1px) scale(.99); }
+  .btn:focus-visible{ outline:2px solid var(--brand); outline-offset:3px; }
+  .btn svg{ width:18px; height:18px; }
+  .contact{ margin-top:26px; display:flex; flex-wrap:wrap; gap:9px 22px; font-size:15px; color:#B9CCC4; }
+  .contact span{ display:inline-flex; align-items:center; gap:8px; }
+  .contact b{ color:#fff; font-weight:650; }
+  .contact a{ color:var(--brand-ink); text-decoration:none; font-weight:650; }
+  .contact a:hover{ text-decoration:underline; }
+
+  @media (max-width:760px){
+    .grid2,.grid3,.why,.eng,.work{ grid-template-columns:1fr; }
+    .work{ gap:22px; }
+    .slide{ padding:64px 22px; }
+    .snum{ right:22px; }
+    .scrollhint{ left:22px; }
+    .body-p{ max-width:none; }
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+    .reveal.in{ opacity:1; transform:none; }
+  }
+</style>
+
+<button class="tt" id="tt" aria-label="Toggle light/dark theme">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M20 14.5A8 8 0 0 1 9.5 4 7 7 0 1 0 20 14.5Z"/></svg>
+</button>
+<a class="backlink" href="index.html" aria-label="Back to Sehat Masa Depan site">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+  <span>Sehat Masa Depan</span>
+</a>
+<nav class="dots" id="dots" aria-label="Slides"></nav>
+
+<!-- ============ 1 &middot; COVER ============ -->
+<section class="slide" id="s1">
+  <span class="snum">01 / 09</span>
+  <div class="inner">
+    <div class="brandrow reveal">
+      <div class="mark">
+        <img src="assets/logo-smd-mark.png" alt="Sehat Masa Depan logo" width="34" height="34">
+      </div>
+      <div class="wordmark">
+        <div class="n">Sehat Masa Depan</div>
+        <div class="s">Product Studio</div>
+      </div>
+    </div>
+
+    <div class="eyebrow reveal">Idea &rarr; shipped product</div>
+    <h1 class="h-lg mt-s reveal">We design and build digital products meant to be used, not shelved.</h1>
+    <p class="lede mt-m reveal">A lean product studio that takes an idea from a first sketch to a live, working platform &mdash; without the cost and delay of building an engineering team. Led by a physician who codes.</p>
+
+    <svg class="pulse draw reveal" viewBox="0 0 560 52" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="pulseGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#22369B"/>
+          <stop offset="0.42" stop-color="#1C6CAE"/>
+          <stop offset="0.78" stop-color="#2BB6CF"/>
+          <stop offset="1" stop-color="#5DE3DC"/>
+        </linearGradient>
+      </defs>
+      <path d="M0 32 H150 L172 32 L188 12 L214 44 L240 20 L262 32 H370 L386 32 L400 24 L416 40 L430 32 H560"/>
+    </svg>
+
+    <div class="cover-foot reveal">
+      <span>dr. Lukmanul Hafiz, M.D.</span>
+      <span>halo@sehatmasadepan.com</span>
+    </div>
+  </div>
+  <div class="scrollhint">Scroll
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+  </div>
+</section>
+
+<!-- ============ 2 &middot; PREMISE ============ -->
+<section class="slide" id="s2">
+  <span class="snum">02 / 09</span>
+  <div class="inner">
+    <div class="eyebrow reveal">The premise</div>
+    <h2 class="h-md mt-s reveal lead-max">Most good ideas never become products.</h2>
+    <p class="body-p mt-m reveal lead-max" style="max-width:56ch;">The distance between <em>&ldquo;we should build this&rdquo;</em> and <em>&ldquo;it&rsquo;s live and people rely on it&rdquo;</em> is where projects stall &mdash; recruiting, agency overhead, cost, and time. Sehat Masa Depan exists to close that gap: a small, senior studio that turns a concept into a real, launched product, fast &mdash; and stays to help it grow.</p>
+  </div>
+</section>
+
+<!-- ============ 3 &middot; SERVICES ============ -->
+<section class="slide" id="s3">
+  <span class="snum">03 / 09</span>
+  <div class="inner">
+    <div class="eyebrow reveal">What we do</div>
+    <h2 class="h-md mt-s reveal">Everything from idea to launch &mdash; under one roof.</h2>
+    <div class="grid2 mt-m">
+      <div class="card reveal">
+        <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Product strategy</h3>
+        <p>Turn a fuzzy idea into a scoped, buildable plan &mdash; the right first version, and what comes after.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 16l6-6 4 4 6-8"/><rect x="3" y="3" width="18" height="18" rx="3"/></svg></div>
+        <h3>Design (UX / UI)</h3>
+        <p>Interfaces that feel obvious to use &mdash; for your team and your customers alike.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13 5l-2 14"/></svg></div>
+        <h3>Engineering</h3>
+        <p>Secure, modern, maintainable builds &mdash; multi-user, integrated, and ready for real data.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M5 19l4-9 4 5 3-7 3 11"/><path d="M4 21h16"/></svg></div>
+        <h3>Launch &amp; iterate</h3>
+        <p>Ship it, measure how it&rsquo;s used, and improve it &mdash; a product that keeps getting better.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4 &middot; WHAT WE BUILD ============ -->
+<section class="slide" id="s4">
+  <span class="snum">04 / 09</span>
+  <div class="inner">
+    <div class="eyebrow reveal">What we build</div>
+    <h2 class="h-md mt-s reveal lead-max">The kinds of products we ship.</h2>
+    <div class="chips mt-m reveal">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>MVPs &amp; prototypes</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Operations platforms &amp; CRMs</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Dashboards &amp; internal tools</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Patient &amp; customer apps</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Public forms &amp; intake flows</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Integrations &amp; automations</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>WhatsApp-driven workflows</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Reporting &amp; analytics</span>
+    </div>
+    <p class="body-p mt-l reveal" style="max-width:56ch;">Special strength in <strong>healthcare and the businesses around it</strong> &mdash; clinics, referrals, health services &mdash; where understanding the user and the compliance matters as much as the code.</p>
+  </div>
+</section>
+
+<!-- ============ 5 &middot; HOW WE WORK ============ -->
+<section class="slide deep" id="s5">
+  <span class="snum">05 / 09</span>
+  <div class="inner">
+    <div class="eyebrow reveal">How we work</div>
+    <h2 class="h-md mt-s reveal">Three phases, each de-risking the next.</h2>
+    <div class="grid3 mt-m">
+      <div class="card reveal">
+        <div class="step">PHASE 0</div>
+        <h3 style="margin-top:8px;">Discovery &amp; Blueprint</h3>
+        <p>We map how you really work and turn the idea into a precise plan &mdash; you leave with a clickable blueprint and a fixed build price, whether or not you continue.</p>
+      </div>
+      <div class="card reveal">
+        <div class="step">PHASE 1</div>
+        <h3 style="margin-top:8px;">Build &amp; Launch</h3>
+        <p>A real, secure, multi-user product &mdash; built and delivered in milestones, live for your team, on a fixed price.</p>
+      </div>
+      <div class="card reveal">
+        <div class="step">PHASE 2</div>
+        <h3 style="margin-top:8px;">Grow &amp; Support</h3>
+        <p>Hosting, support, and a monthly improvement budget &mdash; so the product keeps pace with the business instead of freezing on launch day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6 &middot; WHY US ============ -->
+<section class="slide" id="s6">
+  <span class="snum">06 / 09</span>
+  <div class="inner">
+    <div class="eyebrow reveal">Why Sehat Masa Depan</div>
+    <h2 class="h-md mt-s reveal">Built differently &mdash; on purpose.</h2>
+    <div class="why mt-m">
+      <div class="w reveal">
+        <div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10Z"/></svg></div>
+        <div><h3>Domain-fluent</h3><p>Led by a doctor. We understand healthcare, compliance, and what real users need &mdash; so we build the right thing, not just a thing.</p></div>
+      </div>
+      <div class="w reveal">
+        <div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M13 3L4 14h6l-1 7 9-11h-6z"/></svg></div>
+        <div><h3>Lean &amp; fast</h3><p>A modern, AI-augmented process &mdash; senior work without the overhead and timelines of a large team.</p></div>
+      </div>
+      <div class="w reveal">
+        <div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <div><h3>Low-risk</h3><p>Fixed prices, phased commitments, and a paid discovery before any big build &mdash; you always see what you&rsquo;re buying first.</p></div>
+      </div>
+      <div class="w reveal">
+        <div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M16 11a4 4 0 1 0-4-4M3 20a6 6 0 0 1 12 0M17 14a6 6 0 0 1 4 6"/></svg></div>
+        <div><h3>A partner, not a vendor</h3><p>We stay after launch and care about your numbers going up &mdash; the studio wins when your product does.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7 &middot; SELECTED WORK ============ -->
+<section class="slide" id="s7">
+  <span class="snum">07 / 09</span>
+  <div class="inner">
+    <div class="eyebrow reveal">Selected work</div>
+    <div class="work mt-m">
+      <div class="work-copy reveal">
+        <div class="kicker">Operations platform</div>
+        <h3>One platform to run an operation end to end.</h3>
+        <p>Designed from a single brief: a pipeline that tracks each case from first message to follow-up, a unified message timeline, and a public intake form &mdash; built to replace scattered phones and spreadsheets.</p>
+        <div class="work-tags">
+          <span class="tag">Product strategy</span>
+          <span class="tag">UX / UI</span>
+          <span class="tag">Full build</span>
+          <span class="tag">Health-tech</span>
+        </div>
+      </div>
+      <div class="mock reveal" aria-hidden="true">
+        <div class="mock-bar"><i></i><i></i><i></i><span class="t">Case pipeline</span></div>
+        <div class="mock-col">
+          <div class="mcol">
+            <div class="h">Enquiry</div>
+            <div class="mcard"><span class="mdot" style="background:#1FA9B8"></span><div class="nm">Ibu Ratna S.</div><div class="mm">Bandung &middot; Cardiology</div></div>
+          </div>
+          <div class="mcol">
+            <div class="h">Quote</div>
+            <div class="mcard"><span class="mdot" style="background:#1C6CAE"></span><div class="nm">Bpk. Ahmad F.</div><div class="mm">Surabaya &middot; Screening</div><span class="pill">Quoted</span></div>
+          </div>
+          <div class="mcol">
+            <div class="h">Treatment</div>
+            <div class="mcard"><span class="mdot" style="background:#1F9460"></span><div class="nm">Bpk. Tommy H.</div><div class="mm">Partner hospital &middot; Cardiology</div><span class="pill">In treatment</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8 &middot; ENGAGEMENT ============ -->
+<section class="slide" id="s8">
+  <span class="snum">08 / 09</span>
+  <div class="inner">
+    <div class="eyebrow reveal">How to work with us</div>
+    <h2 class="h-md mt-s reveal">Start small. Scale as it proves itself.</h2>
+    <div class="eng mt-m">
+      <div class="e reveal">
+        <div class="num">01</div>
+        <h3>Discovery Sprint</h3>
+        <p>A short, fixed-scope engagement that turns your idea into a blueprint and a fixed build quote. The low-risk way to begin.</p>
+        <span class="when">1&ndash;2 weeks &middot; fixed fee</span>
+      </div>
+      <div class="e reveal">
+        <div class="num">02</div>
+        <h3>Fixed-Price Build</h3>
+        <p>From a focused MVP to a full platform &mdash; designed, built, tested, and launched for your team on a fixed price.</p>
+        <span class="when">delivered in milestones</span>
+      </div>
+      <div class="e reveal">
+        <div class="num">03</div>
+        <h3>Monthly Partnership</h3>
+        <p>Hosting, support, and continuous improvement &mdash; a product team on call, for a predictable monthly fee.</p>
+        <span class="when">ongoing</span>
+      </div>
+    </div>
+    <p class="body-p mt-l reveal" style="max-width:58ch; font-size:15px;">Every engagement is scoped and priced to fit the project &mdash; confirmed in writing after the Discovery Sprint, so you invest in exactly what you need.</p>
+  </div>
+</section>
+
+<!-- ============ 9 &middot; CTA ============ -->
+<section class="slide deep" id="s9">
+  <span class="snum">09 / 09</span>
+  <div class="inner">
+    <div class="eyebrow reveal">Let&rsquo;s build</div>
+    <h2 class="cta-h mt-s reveal">Have an idea?<br>Let&rsquo;s make it real.</h2>
+    <p class="lede mt-m reveal">Start with a short discovery call. We&rsquo;ll tell you honestly what it takes to build &mdash; and how to get there fast.</p>
+    <a class="btn reveal" href="https://wa.me/628111441992?text=Hi%20dr.%20Lukmanul%2C%20I%27d%20like%20to%20talk%20to%20Sehat%20Masa%20Depan%20about%20a%20product." target="_blank" rel="noopener">Book a discovery call
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="contact reveal">
+      <span>dr. Lukmanul Hafiz, M.D.</span>
+      <span><b>WhatsApp</b> <a class="mono" href="https://wa.me/628111441992" target="_blank" rel="noopener">+62 811 1441 992</a></span>
+      <span><b>Email</b> <a href="mailto:halo@sehatmasadepan.com">halo@sehatmasadepan.com</a></span>
+    </div>
+    <p class="reveal" style="margin-top:20px; font-size:12.5px; color:#8AA0C8;">Sehat Masa Depan Product Studio is a service line of PT Sehat Masa Depan.</p>
+  </div>
+</section>
+
+<script>
+  (function(){
+    var KEY="smd-deck-theme";
+    try{ var s=localStorage.getItem(KEY); if(s) document.documentElement.setAttribute("data-theme", s); }catch(e){}
+    document.getElementById("tt").addEventListener("click", function(){
+      var cur=document.documentElement.getAttribute("data-theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");
+      var next=cur==="dark"?"light":"dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try{ localStorage.setItem(KEY, next); }catch(e){}
+    });
+
+    // nav dots
+    var slides=[].slice.call(document.querySelectorAll(".slide"));
+    var dots=document.getElementById("dots");
+    slides.forEach(function(sl,i){
+      var a=document.createElement("a"); a.href="#"+sl.id; a.setAttribute("aria-label","Slide "+(i+1));
+      dots.appendChild(a);
+    });
+    var dotEls=[].slice.call(dots.children);
+
+    // reveal + active dot via IntersectionObserver
+    var revealIO=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) e.target.classList.add("in"); });
+    },{threshold:0.12});
+    document.querySelectorAll(".reveal").forEach(function(el){ revealIO.observe(el); });
+
+    var activeIO=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          var i=slides.indexOf(e.target);
+          dotEls.forEach(function(d,di){ d.classList.toggle("on", di===i); });
+        }
+      });
+    },{threshold:0.5});
+    slides.forEach(function(sl){ activeIO.observe(sl); });
+  })();
+</script>
