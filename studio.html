@@ -136,7 +136,7 @@
     font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
 
   /* chips */
-  .chips{ display:flex; flex-wrap:wrap; gap:10px; }
+  .chips{ display:flex; flex-wrap:wrap; gap:10px; list-style:none; margin:0; padding:0; }
   .chip{ display:inline-flex; align-items:center; gap:9px; background:var(--surface); border:1px solid var(--line);
     border-radius:12px; padding:12px 16px; font-size:15px; font-weight:600; box-shadow:var(--shadow-sm); }
   .chip svg{ width:18px; height:18px; color:var(--brand); flex:none; }
@@ -313,16 +313,16 @@
   <div class="inner">
     <div class="eyebrow reveal">What we build</div>
     <h2 class="h-md mt-s reveal lead-max">The kinds of products we ship.</h2>
-    <div class="chips mt-m reveal">
-      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>MVPs &amp; prototypes</span>
-      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Operations platforms &amp; CRMs</span>
-      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Dashboards &amp; internal tools</span>
-      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Patient &amp; customer apps</span>
-      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Public forms &amp; intake flows</span>
-      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Integrations &amp; automations</span>
-      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>WhatsApp-driven workflows</span>
-      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Reporting &amp; analytics</span>
-    </div>
+    <ul class="chips mt-m reveal">
+      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4L19 7"/></svg>MVPs &amp; prototypes</li>
+      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4L19 7"/></svg>Operations platforms &amp; CRMs</li>
+      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4L19 7"/></svg>Dashboards &amp; internal tools</li>
+      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4L19 7"/></svg>Patient &amp; customer apps</li>
+      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4L19 7"/></svg>Public forms &amp; intake flows</li>
+      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4L19 7"/></svg>Integrations &amp; automations</li>
+      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4L19 7"/></svg>WhatsApp-driven workflows</li>
+      <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4L19 7"/></svg>Reporting &amp; analytics</li>
+    </ul>
     <p class="body-p mt-l reveal" style="max-width:56ch;">Special strength in <strong>healthcare and the businesses around it</strong> &mdash; clinics, referrals, health services &mdash; where understanding the user and the compliance matters as much as the code.</p>
   </div>
 </section>
