@@ -82,7 +82,8 @@
   .backlink:hover{ color:var(--brand); }
   .backlink svg{ width:16px; height:16px; }
   .backlink:focus-visible{ outline:2px solid var(--brand); outline-offset:2px; }
-  @media (max-width:520px){ .backlink span{ display:none; } .backlink{ padding:0 11px; } }
+  /* di bawah 520px teksnya disembunyikan; padding 13px menjaga lebar tetap 44px (target sentuh) */
+  @media (max-width:520px){ .backlink span{ display:none; } .backlink{ padding:0 13px; } }
   .dots{ position:fixed; right:12px; top:50%; transform:translateY(-50%); z-index:40; display:flex; flex-direction:column; gap:0; }
   /* Titik tetap 9px secara visual; kotak 24x24 di sekelilingnya adalah area klik (WCAG 2.2 target size). */
   .dots a{ width:24px; height:24px; display:grid; place-items:center; }
