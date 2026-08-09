@@ -71,22 +71,24 @@
   .slide.deep .snum{ color:rgba(255,255,255,.4); }
 
   /* toggle + dots */
-  .tt{ position:fixed; top:16px; left:16px; z-index:40; width:40px; height:40px; border-radius:12px;
+  .tt{ position:fixed; top:16px; left:16px; z-index:40; width:44px; height:44px; border-radius:12px;
     border:1px solid var(--line); background:var(--surface); color:var(--muted); display:grid; place-items:center;
     cursor:pointer; box-shadow:var(--shadow-sm); }
   .tt svg{ width:18px; height:18px; }
   .tt:focus-visible{ outline:2px solid var(--brand); outline-offset:2px; }
-  .backlink{ position:fixed; top:16px; left:64px; z-index:40; height:40px; display:inline-flex; align-items:center; gap:7px;
+  .backlink{ position:fixed; top:16px; left:68px; z-index:40; height:44px; display:inline-flex; align-items:center; gap:7px;
     padding:0 15px 0 12px; border-radius:12px; border:1px solid var(--line); background:var(--surface); color:var(--muted);
     font-size:13px; font-weight:650; text-decoration:none; box-shadow:var(--shadow-sm); }
   .backlink:hover{ color:var(--brand); }
   .backlink svg{ width:16px; height:16px; }
   .backlink:focus-visible{ outline:2px solid var(--brand); outline-offset:2px; }
   @media (max-width:520px){ .backlink span{ display:none; } .backlink{ padding:0 11px; } }
-  .dots{ position:fixed; right:20px; top:50%; transform:translateY(-50%); z-index:40; display:flex; flex-direction:column; gap:11px; }
-  .dots a{ width:9px; height:9px; border-radius:50%; background:var(--line); transition:transform .2s, background .2s; }
-  .dots a:hover{ background:var(--brand); }
-  .dots a.on{ background:var(--brand); transform:scale(1.35); }
+  .dots{ position:fixed; right:12px; top:50%; transform:translateY(-50%); z-index:40; display:flex; flex-direction:column; gap:0; }
+  /* Titik tetap 9px secara visual; kotak 24x24 di sekelilingnya adalah area klik (WCAG 2.2 target size). */
+  .dots a{ width:24px; height:24px; display:grid; place-items:center; }
+  .dots a::before{ content:''; width:9px; height:9px; border-radius:50%; background:var(--line); transition:transform .2s, background .2s; }
+  .dots a:hover::before{ background:var(--brand); }
+  .dots a.on::before{ background:var(--brand); transform:scale(1.35); }
   @media (max-width:900px){ .dots{ display:none; } }
 
   /* headings scale */
