@@ -1,30 +1,31 @@
 # PT Sehat Masa Depan — Website
 
-Static marketing site. No build step, no dependencies to install — just static files.
+Static marketing site for **sehatmasadepan.com**. Pure HTML + CSS — no build step, no framework, no dependencies to install.
 
 ## Structure
 
 ```
-index.html          Main page
-css/styles.css      Design-system tokens (fonts, colors, type, spacing) — bundled
-css/v2.css          Site styles (hero, sections, tweaks theming)
-tweaks-panel.jsx    Optional in-page controls (mood / motion / hero style)
+index.html          Main page (hero, sections, inquiry form, GA4)
+studio.html         Product Studio subpage — standalone, CSS inlined (noindex)
+css/styles.css      Design-system entry point: @imports css/tokens/*
+css/tokens/         Fonts, colors, typography, spacing, radii, base
+css/v2.css          Site styles v2 ("The Healthy Future"): dark hero + light body,
+                    themed via <html data-mood data-motion data-hero>
 assets/             Logo
+CNAME               Custom domain (sehatmasadepan.com) — do not remove
+CODEMAP.md          Repo map for AI-assisted work — keep in sync with structure
 ```
+
+Colors and fonts flow from `css/tokens/*` — change values there, not inline in `v2.css`.
 
 ## Deploy
 
-### GitHub Pages
-1. Push these files to the repo root (or a `/docs` folder).
-2. Repo → Settings → Pages → Source: `main` branch, root (or `/docs`).
-3. Live at `https://<user>.github.io/<repo>/`.
-
-The included `.nojekyll` file tells Pages to serve the files as-is.
-
-### Any static host (Netlify, Vercel, Cloudflare Pages, S3)
-Upload the folder as-is. `index.html` is the entry point.
+GitHub Pages, source: `main` branch root. Push to `main` → Pages rebuilds (~1 min).
+The domain is fronted by Cloudflare with clean URLs: `studio.html` is served at `/studio` (both resolve — not a bug).
 
 ## Notes
-- Fonts load from Google Fonts; React/Babel (for the tweaks panel) load from unpkg CDN. Both need internet access at page load. The site renders fully without them if a CDN is blocked — the tweaks panel simply won't appear.
-- The inquiry form opens a pre-filled email to `halo@sehatmasadepan.com`. To wire a real backend/email service, replace the `#inquiryForm` submit handler near the bottom of `index.html`.
-- Contact: update phone, email, and WhatsApp number (`628111441992`) in `index.html` if they change.
+
+- **Fonts** load from the Google Fonts CDN (`css/tokens/fonts.css`: Plus Jakarta Sans, JetBrains Mono); `studio.html` loads its own. Icons on `index.html` load Lucide from unpkg. Both need internet at page load; the site still renders without them.
+- **Inquiry form** (`#inquiryForm`) opens a pre-filled email to `halo@sehatmasadepan.com`. To wire a real backend, replace its submit handler near the bottom of `index.html`.
+- **Analytics**: GA4 (`G-6TJ0G8SN38`) on `index.html` only.
+- **Contact details** (phone, email, WhatsApp `628111441992`) live in `index.html` — update there if they change.
