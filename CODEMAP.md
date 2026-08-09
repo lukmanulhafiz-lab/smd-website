@@ -22,6 +22,7 @@ tanpa build step, tanpa framework, tanpa dependency (bukan Next.js, apa pun kata
 Ubah warna/font → edit `css/tokens/*`; ubah layout/section → edit `css/v2.css`; `studio.html` terpisah total.
 
 ## Jebakan
+- **`git pull` DULU sebelum kerja apa pun** — repo ini juga diedit langsung via GitHub/sesi lain; clone lokal pernah kedapatan basi 4 commit + nyangkut di branch lama (Agu 2026).
 - Folder deploy di Downloads = DECOY BASI — satu-satunya sumber live adalah repo git ini (memory `smd-website-deploy-topology`).
 - Lokasi clone lokal tidak lazim: `C:\Users\lukma\belajar\smd-website` (bukan di workspace Claude Code).
 - README menyebut `tweaks-panel.jsx` yang SUDAH TIDAK ADA di repo — abaikan; README belum diperbarui.
