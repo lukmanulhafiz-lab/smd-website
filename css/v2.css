@@ -268,7 +268,8 @@ section.block.alt { background: var(--b-alt); }
 .feat .fnum { font-family: var(--font-mono); font-size: 12px; letter-spacing: .14em; color: var(--b-muted); }
 .feat h3 { font-size: 19.5px; color: var(--b-strong); margin: 0 0 9px; }
 .feat p { font-size: 14.5px; color: var(--b-muted); line-height: 1.62; margin: 0; }
-.feat .f-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 13.5px; font-weight: 700; color: var(--ic-aqua); }
+/* padding menggantikan sebagian margin-top: area sentuh 44px, posisi visual tidak bergeser */
+.feat .f-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; padding-block: 12px; margin-bottom: -12px; font-size: 13.5px; font-weight: 700; color: var(--ic-aqua); }
 .feat .f-link:hover { text-decoration: none; gap: 9px; }
 .feat .f-link { transition: gap .18s ease; }
 
@@ -314,8 +315,9 @@ section.block.alt { background: var(--b-alt); }
 .contact-copy .c-sub { font-size: 16px; color: rgba(255,255,255,.82); margin: 16px 0 0; line-height: 1.65; max-width: 460px; }
 .sla-chips { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
 .sla-chips span { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: 10px; letter-spacing: .13em; color: var(--mint-300); background: rgba(93,227,220,.09); border: 1px solid rgba(93,227,220,.22); border-radius: 999px; padding: 7px 13px; }
-.contact-lines { display: flex; flex-direction: column; gap: 13px; margin-top: 26px; }
-.cline { display: inline-flex; align-items: center; gap: 11px; font-size: 14.5px; font-weight: 600; color: rgba(255,255,255,.92); width: fit-content; }
+/* gap dipindah jadi padding: baris kontak tetap di posisi yang sama, tapi area sentuhnya tumbuh 21px -> 34px */
+.contact-lines { display: flex; flex-direction: column; gap: 1px; margin-top: 20px; margin-bottom: -6px; }
+.cline { display: inline-flex; align-items: center; gap: 11px; padding-block: 6px; font-size: 14.5px; font-weight: 600; color: rgba(255,255,255,.92); width: fit-content; }
 a.cline:hover { color: var(--mint-300); text-decoration: none; }
 
 .lead { background: #fff; border-radius: 22px; box-shadow: 0 30px 90px rgba(0,0,0,.4); padding: 28px; color: var(--text-body); }
@@ -327,8 +329,9 @@ a.cline:hover { color: var(--mint-300); text-decoration: none; }
 .field textarea { height: 72px; padding: 11px 13px; resize: none; }
 .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); box-shadow: var(--ring-accent); }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
-.lead .alt-line { display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: 14px; font-size: 13px; color: var(--text-muted); }
-.lead .alt-line a { font-weight: 700; color: var(--green-600); display: inline-flex; align-items: center; gap: 5px; }
+.lead .alt-line { display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: 1px; margin-bottom: -13px; font-size: 13px; color: var(--text-muted); }
+/* padding vertikal 13px menaikkan area sentuh WhatsApp ke 45,5px (13px, bukan 12px: 12px hanya menghasilkan 43,5px); margin induk mengimbanginya agar posisi tidak berubah */
+.lead .alt-line a { font-weight: 700; color: var(--green-600); display: inline-flex; align-items: center; gap: 5px; padding-block: 13px; }
 .lead .note { font-size: 11px; color: var(--text-subtle); margin-top: 12px; text-align: center; line-height: 1.5; }
 
 /* ---------------- Footer ---------------- */
@@ -337,8 +340,11 @@ footer { background: var(--b-bg); border-top: 1px solid var(--b-bd); padding: 40
 .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1.2fr; gap: 28px; }
 .foot-brand p { font-size: 13.5px; color: var(--b-muted); margin: 14px 0 0; max-width: 310px; line-height: 1.6; }
 .foot-brand .brand { color: var(--b-strong); }
-.foot-col h4 { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: .18em; color: var(--b-strong); margin: 0 0 15px; font-weight: 600; }
-.foot-col a, .foot-col .line { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--b-muted); margin-bottom: 10px; }
+.foot-col h4 { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: .18em; color: var(--b-strong); margin: 0 0 10px; font-weight: 600; }
+/* margin-bottom jadi padding-block: jarak antar-baris tetap 31px, area sentuh naik 21px -> 31px tanpa saling tumpang tindih */
+.foot-col a, .foot-col .line { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--b-muted); padding-block: 5px; }
+/* baris terakhir kehilangan margin bawahnya saat margin diubah jadi padding — dikembalikan agar tinggi kolom persis sama */
+.foot-col a:last-child, .foot-col .line:last-child { margin-bottom: 5px; }
 .foot-col a:hover { color: var(--ic-aqua); text-decoration: none; }
 .foot-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--b-bd); font-size: 12px; color: var(--b-muted); font-family: var(--font-mono); }
 
@@ -413,7 +419,7 @@ footer { background: var(--b-bg); border-top: 1px solid var(--b-bd); padding: 40
   position:fixed; top:8px; left:8px; z-index:200;
   transform:translateY(-160%);
   background:#0B1220; color:#fff;
-  padding:10px 16px; border-radius:10px;
+  padding:12px 16px; border-radius:10px;
   font-weight:700; font-size:14px; text-decoration:none;
   box-shadow:0 8px 24px rgba(0,0,0,.35);
   transition:transform .18s ease;
