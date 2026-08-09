@@ -200,10 +200,13 @@
   .btn:active{ transform:translateY(1px) scale(.99); }
   .btn:focus-visible{ outline:2px solid var(--brand); outline-offset:3px; }
   .btn svg{ width:18px; height:18px; }
-  .contact{ margin-top:26px; display:flex; flex-wrap:wrap; gap:9px 22px; font-size:15px; color:#B9CCC4; }
-  .contact span{ display:inline-flex; align-items:center; gap:8px; }
+  /* Jarak antar-baris 9px dipindah jadi padding di dalam tautan: area sentuh 24px -> 32px,
+     jarak baris tetap 33px. min-height menyamakan baris yang tidak punya tautan (nama),
+     kalau tidak jarak barisnya jadi tidak rata. */
+  .contact{ margin-top:22px; margin-bottom:-4px; display:flex; flex-wrap:wrap; gap:1px 22px; font-size:15px; color:#B9CCC4; }
+  .contact span{ display:inline-flex; align-items:center; gap:8px; min-height:32px; }
   .contact b{ color:#fff; font-weight:650; }
-  .contact a{ color:var(--brand-ink); text-decoration:none; font-weight:650; }
+  .contact a{ color:var(--brand-ink); text-decoration:none; font-weight:650; padding-block:4px; }
   .contact a:hover{ text-decoration:underline; }
 
   @media (max-width:760px){
