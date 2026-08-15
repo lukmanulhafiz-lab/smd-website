@@ -7,7 +7,10 @@ tanpa build step, tanpa framework, tanpa dependency (bukan Next.js, apa pun kata
 
 ## Entry point & perintah
 - Tidak ada build/server: buka `index.html` langsung, atau preview via browser pane.
-- Deploy = push ke `main` → GitHub Pages (repo `lukmanulhafiz-lab/smd-website`) → Cloudflare (clean URLs).
+- Deploy = push ke `main` → **Netlify** (auto-deploy dari repo `lukmanulhafiz-lab/smd-website`) → Cloudflare di depannya.
+  ⚠️ **Bukan GitHub Pages** — dikoreksi 9 Agu 2026 setelah verifikasi: header respons live memuat `X-Nf-Request-Id`,
+  apex A = `75.2.60.5` (IP Netlify), dan `www` CNAME ke `musical-faloodeh-529eec.netlify.app`.
+  **Clean URL (`/faq` → `faq.html`) berasal dari Netlify**, bukan Cloudflare. Kalau deploy bermasalah, cek dashboard Netlify.
 - `CNAME` berisi `sehatmasadepan.com` — JANGAN dihapus/diubah, custom domain mati kalau hilang.
 
 ## File penting & perannya
