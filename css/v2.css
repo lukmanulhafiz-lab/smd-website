@@ -425,3 +425,40 @@ footer { background: var(--b-bg); border-top: 1px solid var(--b-bd); padding: 40
   transition:transform .18s ease;
 }
 .skip-link:focus{ transform:translateY(0); outline:2px solid #5DE3DC; outline-offset:2px; }
+
+/* ============================================================
+   Halaman layanan (regulatory-advisory, digital-health-strategy,
+   capacity-building, ai-data-governance) — dipakai 4 halaman,
+   jadi ditaruh di sini sekali, bukan di-inline empat kali.
+   ============================================================ */
+.svc-page > .block { padding-top: 108px; }   /* ruang untuk nav fixed 72px */
+.svc-lede { max-width: 62ch; font-size: 17px; line-height: 1.65; color: var(--text-body); }
+.svc-sec { margin-top: 52px; }
+.svc-sec > h2 { font-size: 23px; margin: 0 0 6px; }
+.svc-sec > .sub { font-size: 14.5px; color: var(--text-muted); margin: 0 0 20px; max-width: 60ch; }
+.svc-list { display: grid; gap: 14px; padding: 0; margin: 0; list-style: none; }
+.svc-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15.5px; line-height: 1.6; max-width: 68ch; }
+.svc-list li svg { flex: 0 0 auto; margin-top: 3px; color: var(--ic-aqua, #1A8B9A); }
+.svc-steps { counter-reset: s; display: grid; gap: 18px; padding: 0; margin: 0; list-style: none; }
+.svc-steps li { counter-increment: s; position: relative; padding-left: 46px; font-size: 15.5px; line-height: 1.6; max-width: 66ch; }
+.svc-steps li::before {
+  content: counter(s, decimal-leading-zero); position: absolute; left: 0; top: -1px;
+  font-family: var(--font-mono); font-size: 13px; font-weight: 600;
+  color: var(--ic-aqua, #1A8B9A); background: var(--tint-aqua, rgba(93,227,220,.12));
+  width: 32px; height: 28px; display: grid; place-items: center; border-radius: 8px;
+}
+.svc-steps li strong { display: block; margin-bottom: 3px; }
+.svc-note { margin-top: 22px; padding: 18px 20px; border-radius: 13px;
+  background: var(--amber-50, #FDF6E7); border: 1px solid var(--amber-100, #FAE9BE);
+  font-size: 14.5px; line-height: 1.62; max-width: 68ch; }
+.svc-cta { margin-top: 56px; padding: 26px; border-radius: 16px; background: var(--tint-aqua, rgba(93,227,220,.10)); }
+.svc-cta h2 { margin: 0 0 8px; font-size: 20px; }
+.svc-cta p { margin: 0 0 16px; font-size: 15px; max-width: 60ch; }
+.svc-more { margin-top: 46px; padding-top: 26px; border-top: 1px solid var(--border-subtle, #E6EBF2); }
+.svc-more h2 { font-size: 15px; margin: 0 0 14px; letter-spacing: .02em; }
+.svc-more-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); gap: 12px; }
+.svc-more-grid a { display: block; padding: 15px 17px; border-radius: 12px;
+  border: 1px solid var(--border-subtle, #E6EBF2); font-size: 14.5px; font-weight: 650;
+  color: var(--text-strong); background: var(--surface-card, #fff); }
+.svc-more-grid a:hover { border-color: var(--border-brand, #6FB7E4); text-decoration: none; }
+.svc-more-grid a span { display: block; font-weight: 500; font-size: 13px; color: var(--text-muted); margin-top: 4px; }
