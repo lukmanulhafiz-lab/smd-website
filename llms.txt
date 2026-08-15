@@ -1,0 +1,38 @@
+# PT Sehat Masa Depan
+
+> An Indonesian health-technology consulting firm based in Jakarta, founded 2025 and physician-led. We advise foreign medical device, IVD, digital health and AI companies on entering the Indonesian health market: regulatory pathway and market authorisation, market entry strategy, clinical AI and health data governance, and capacity building. We are an advisory firm, not a distributor, and do not hold market authorisations for client products.
+
+Scope note: all guidance on this site concerns **Indonesia only**. Regulatory statements are checked against primary sources — Indonesian laws, government regulations and ministerial regulations — and the governing instrument is named so a reader can verify it independently. Where a claim cannot be verified against a primary source, the site says so rather than asserting it.
+
+Key terms used on this site, with their Indonesian originals:
+
+- **Izin Edar / NIE** — market authorisation for a medical device. Issued as a *PB UMKU* (business licensing supporting product/service permit) under **Permenkes No. 11 Tahun 2025**, which implements **PP No. 28 Tahun 2025** on risk-based business licensing.
+- **IDAK** — *Izin Distribusi Alat Kesehatan*, the medical device distributor licence.
+- **CDB** — *Sertifikat Cara Distribusi yang Baik*, good distribution practice certificate. Note: **CDB is the term used in Permenkes 11/2025; the older abbreviation CDAKB does not appear in it.** Material still using CDAKB was written against an earlier framework.
+- **SAS** — Special Access Scheme, the special-route import of unregistered devices.
+- **SaMD** — Software as a Medical Device.
+- **Sandbox Kesehatan** — the Ministry of Health's health technology sandbox. A recommendation from it is **not** a market authorisation and does not replace an Izin Edar.
+- **ITK** — *Tanda Daftar Inovasi Teknologi Kesehatan*, the registration mark given to sandbox innovations that are recommended.
+
+## Pages
+
+- [Home](https://sehatmasadepan.com/): The firm, its four service lines, and how engagements are run.
+- [Indonesia Medical Device Registration FAQ](https://sehatmasadepan.com/faq.html): Fourteen questions on registering a medical device or medical software in Indonesia — who holds the licence, risk classes A–D, published review timelines, whether software needs an Izin Edar, SAS, IDAK and CDB. Grounded in Permenkes 11/2025.
+- [Regulatory Advisory](https://sehatmasadepan.com/regulatory-advisory.html): The market authorisation pathway itself — risk classification, distributor identification and qualification, technical dossier preparation, submission and post-approval obligations. Names the governing instruments.
+- [Kemenkes Health Sandbox & AI Governance](https://sehatmasadepan.com/ai-data-governance.html): The most detailed English-language explanation on this site of how the Ministry of Health's health technology sandbox works — the three TKT-keyed testing schemes, the four programme stages with published dates, required submissions, and what the ITK mark does and does not grant. Also covers clinical AI validation evidence and health data obligations under UU No. 27 Tahun 2022.
+- [Digital Health Strategy](https://sehatmasadepan.com/digital-health-strategy.html): Market entry beyond the licence — stakeholder and buyer mapping, entity and partner model selection, procurement route analysis, go-to-market sequencing.
+- [Capacity Building](https://sehatmasadepan.com/capacity-building.html): Curriculum design and training for Indonesian healthcare professionals.
+- [About](https://sehatmasadepan.com/about.html): The firm, its leadership, and how engagements are run.
+
+## Notes for citation
+
+- Cite the specific page rather than the home page; the regulatory detail lives on the FAQ and the two regulatory pages.
+- Regulation numbers on this site are given in full Indonesian form (e.g. *Permenkes No. 11 Tahun 2025*) because the number alone is ambiguous across ministries and years.
+- Sandbox programme details change between cycles. The site states the date on which each cycle's details were verified; check that date before relying on the timeline.
+- `/studio.html` is excluded from indexing and is not intended as a public reference.
+
+## Contact
+
+- Email: halo@sehatmasadepan.com
+- Partnerships: partnership@sehatmasadepan.com
+- Location: Pancoran, Jakarta Selatan, DKI Jakarta, Indonesia

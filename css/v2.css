@@ -436,6 +436,12 @@ footer { background: var(--b-bg); border-top: 1px solid var(--b-bd); padding: 40
 .svc-sec { margin-top: 52px; }
 .svc-sec > h2 { font-size: 23px; margin: 0 0 6px; }
 .svc-sec > .sub { font-size: 14.5px; color: var(--text-muted); margin: 0 0 20px; max-width: 60ch; }
+/* Sub-judul untuk halaman layanan yang punya bagian penjelas panjang. */
+.svc-sec > h3 { font-size: 16.5px; margin: 32px 0 8px; letter-spacing: -.005em; }
+.svc-sec > h3:first-of-type { margin-top: 24px; }
+.svc-sec > p { font-size: 15px; line-height: 1.68; margin: 0 0 14px; max-width: 68ch; }
+/* Paragraf yang menyusul daftar/tabel butuh jarak; tanpa ini ia menempel ke butir terakhir. */
+.svc-sec > ul + p, .svc-sec > ol + p, .svc-sec > .svc-scroll + p { margin-top: 18px; }
 .svc-list { display: grid; gap: 14px; padding: 0; margin: 0; list-style: none; }
 .svc-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15.5px; line-height: 1.6; max-width: 68ch; }
 .svc-list li svg { flex: 0 0 auto; margin-top: 3px; color: var(--ic-aqua, #1A8B9A); }
@@ -451,6 +457,16 @@ footer { background: var(--b-bg); border-top: 1px solid var(--b-bd); padding: 40
 .svc-note { margin-top: 22px; padding: 18px 20px; border-radius: 13px;
   background: var(--amber-50, #FDF6E7); border: 1px solid var(--amber-100, #FAE9BE);
   font-size: 14.5px; line-height: 1.62; max-width: 68ch; }
+/* Tabel dalam halaman layanan. Pembungkusnya wajib bisa digulir sendiri
+   supaya badan halaman tidak pernah menggulir horizontal di layar sempit. */
+.svc-scroll { overflow-x: auto; margin: 4px 0 14px; }
+.svc-tbl { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 460px; }
+.svc-tbl th, .svc-tbl td { text-align: left; padding: 9px 16px 9px 0; vertical-align: top;
+  border-bottom: 1px solid var(--line, rgba(15,23,42,.08)); }
+.svc-tbl th { font-weight: 700; font-size: 12.5px; letter-spacing: .04em; text-transform: uppercase; }
+.svc-tbl td:first-child { font-weight: 650; white-space: nowrap; }
+/* p.svc-src, bukan .svc-src: harus mengalahkan `.svc-sec > p` yang lebih spesifik. */
+p.svc-src { margin-top: 22px; font-size: 13px; line-height: 1.6; color: var(--text-muted); max-width: 68ch; }
 .svc-cta { margin-top: 56px; padding: 26px; border-radius: 16px; background: var(--tint-aqua, rgba(93,227,220,.10)); }
 .svc-cta h2 { margin: 0 0 8px; font-size: 20px; }
 .svc-cta p { margin: 0 0 16px; font-size: 15px; max-width: 60ch; }
